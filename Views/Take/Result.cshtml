@@ -1,0 +1,9 @@
+@model QuizMaker.Models.Submission
+@{
+    ViewData["Title"] = "Result";
+    var percent = Model.MaxScore == 0 ? 0 : (int)Math.Round((double)Model.Score / Model.MaxScore * 100);
+}
+<h2>Result</h2>
+<p><strong>@Model.ParticipantName</strong>, your score for <strong>@Model.Quiz.Title</strong> is:</p>
+<div class="display-5">@Model.Score / @Model.MaxScore (@percent%)</div>
+<a asp-controller="Quizzes" asp-action="Index" class="btn btn-secondary mt-3">Back to Quizzes</a>
